@@ -97,7 +97,7 @@ const Hero = () => {
           </Suspense>
         </Canvas>
         <div className="hImg">
-          <img src="/luffy-gear-5-colored.png" alt="" />
+          <img src="/202411.png" alt="" />
         </div>
       </div>
     </div>

@@ -12,12 +12,54 @@
   overflow: hidden;
 }
 
+.falling-icons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.falling-icon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.icon-image {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.3rem;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.icon-name {
+  font-size: 0.7rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .splashContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 2rem;
+  z-index: 2;
+  position: relative;
 }
 
 .splashLogo {
@@ -86,6 +128,20 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  .falling-icon {
+    font-size: 0.7rem;
+  }
+  
+  .icon-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .icon-name {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.3rem;
+  }
+  
   .splashLogo {
     width: 100px;
     height: 100px;
