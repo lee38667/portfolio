@@ -3,8 +3,9 @@
 // import Portfolio from "./components/portfolio/Portfolio";
 // import Contact from "./components/contact/Contact";
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import LazyLoad from "react-lazyload";
+import SplashScreen from "./components/splash/SplashScreen";
 
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
@@ -12,6 +13,33 @@ const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
 const Contact = lazy(() => import("./components/contact/Contact"));
 
 const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Check if user has visited before (optional)
+    const hasVisited = localStorage.getItem('hasVisited');
+    
+    if (hasVisited) {
+      // If user has visited before, show splash for shorter time
+      setTimeout(() => {
+        setShowSplash(false);
+      }, 6000);
+    }
+    
+    // Mark that user has visited
+    localStorage.setItem('hasVisited', 'true');
+  }, []);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    setIsLoaded(true);
+  };
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
+
   return (
     <div className="container">
       <Suspense fallback={"loading..."}>

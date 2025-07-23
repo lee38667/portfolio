@@ -5,7 +5,6 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
@@ -33,7 +32,6 @@ a {
 
 section {
   height: 100vh;
-  scroll-snap-align: center;
 }
 
 @media (min-width: 640px) {

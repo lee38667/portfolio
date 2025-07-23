@@ -1,0 +1,105 @@
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #12071f 0%, #2f204e 50%, #4a3568 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.splashContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.splashLogo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b9d, #c766ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 50px rgba(255, 107, 157, 0.3);
+}
+
+.splashLogo h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.splashText h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.splashText p {
+  font-size: 1.2rem;
+  color: #c766ef;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.splashLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #ff6b9d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.splashLoader p {
+  color: white;
+  font-size: 1rem;
+  opacity: 0.7;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .splashLogo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .splashLogo h1 {
+    font-size: 2.5rem;
+  }
+  
+  .splashText h2 {
+    font-size: 2rem;
+  }
+  
+  .splashText p {
+    font-size: 1rem;
+  }
+}
