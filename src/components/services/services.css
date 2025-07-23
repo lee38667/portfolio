@@ -2,13 +2,16 @@
   height: 100%;
   overflow: hidden;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sSection {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .sTitle {

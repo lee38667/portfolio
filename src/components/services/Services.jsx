@@ -1,10 +1,6 @@
-import ComputerModelContainer from "./computer/ComputerModelContainer";
-import ConsoleModelContainer from "./console/ConsoleModelContainer";
-import Counter from "./Counter";
-import MugModelContainer from "./mug/MugModelContainer";
 import "./services.css";
 import { motion, useInView } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const textVariants = {
   initial: {
@@ -58,9 +54,9 @@ const services = [
 ];
 
 const Services = () => {
-  const [currentServiceId, setCurrentServiceId] = useState(1);
   const ref = useRef();
   const isInView = useInView(ref, { margin: "-200px" });
+  
   return (
     <div className="services" ref={ref}>
       <div className="sSection left">
@@ -81,7 +77,6 @@ const Services = () => {
               variants={listVariants}
               className="service"
               key={service.id}
-              onClick={() => setCurrentServiceId(service.id)}
             >
               <div className="serviceIcon">
                 <img src={service.img} alt="" />
@@ -92,15 +87,6 @@ const Services = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
-      <div className="sSection right">
-        {currentServiceId === 1 ? (
-          <ComputerModelContainer />
-        ) : currentServiceId === 2 ? (
-          <MugModelContainer />
-        ) : (
-          <ConsoleModelContainer />
-        )}
       </div>
     </div>
   );
