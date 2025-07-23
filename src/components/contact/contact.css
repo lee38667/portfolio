@@ -14,7 +14,7 @@
 }
 
 .cSection:last-child {
-  background-color: rgba(2, 2, 45, 0.187);
+  background-color: rgba(45, 45, 45, 0.187);
   margin: 50px 0px;
   padding: 50px;
   border-radius: 50% 0px;
@@ -25,7 +25,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: rgba(2, 2, 45, 0.066);
+  background-color: rgba(45, 45, 45, 0.066);
   padding: 50px;
   border-radius: 50px;
 }
@@ -48,8 +48,8 @@ label {
 }
 
 .formButton {
-  background-color: #dd4c62;
-  color: white;
+  background-color: #808080;
+  color: #000000;
   padding: 20px;
   border: none;
   border-radius: 10px;

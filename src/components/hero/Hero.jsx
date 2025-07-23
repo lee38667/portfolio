@@ -1,9 +1,8 @@
-import { Canvas } from "@react-three/fiber";
 import "./hero.css";
 import Speech from "./Speech";
 import { motion } from "motion/react";
-import Shape from "./Shape";
 import { Suspense } from "react";
+import Spline from '@splinetool/react-spline';
 
 const awardVariants = {
   initial: {
@@ -90,12 +89,31 @@ const Hero = () => {
       </div>
       
       <div className="bg">
-        {/* 3d */}
-        <Canvas>
-          <Suspense fallback="loading...">
-            <Shape />
-          </Suspense>
-        </Canvas>
+        {/* Interactive Spline 3D Scene */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Spline
+            scene="/chess_♟️.spline"
+            onLoad={(splineApp) => {
+              // Remove Spline watermark
+              const watermark = document.querySelector('[data-spline-watermark]');
+              if (watermark) {
+                watermark.style.display = 'none';
+              }
+              
+              // Also try alternative selectors
+              const splineWatermarks = document.querySelectorAll('a[href*="spline.design"]');
+              splineWatermarks.forEach(el => el.style.display = 'none');
+            }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: -1
+            }}
+          />
+        </Suspense>
         <div className="hImg">
           <img src="/202411.png" alt="" />
         </div>

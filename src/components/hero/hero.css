@@ -13,6 +13,15 @@
   z-index: -1;
 }
 
+/* Hide Spline watermark */
+.bg [data-spline-watermark],
+.bg a[href*="spline.design"],
+.bg div[style*="spline.design"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 .hImg {
   position: absolute;
   bottom: 0;
@@ -41,11 +50,11 @@
 .hTitle {
   margin-top: 50px;
   font-size: 100px;
-  color: pink;
+  color: #c0c0c0;
 }
 
 .hTitle span {
-  color: white;
+  color: #e0e0e0;
 }
 
 .awards {
@@ -85,7 +94,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 16px;
-  background-color: #2f204e;
+  background-color: #2d2d2d;
   border-bottom-right-radius: 10px;
 }
 
@@ -100,7 +109,7 @@
 }
 
 .followText {
-  background-color: #dd4c62;
+  background-color: #808080;
   font-size: 12px;
   rotate: 90deg;
   width: max-content;
@@ -136,7 +145,7 @@
   height: 50px;
   border-radius: 100%;
   object-fit: cover;
-  background-color: #dd4c62;
+  background-color: #808080;
 }
 
 .certificate {

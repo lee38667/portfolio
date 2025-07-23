@@ -26,7 +26,7 @@
   width: 50%;
   padding: 30px;
   border-radius: 20px;
-  background-color: #2f213f;
+  background-color: #2d2d2d;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -59,13 +59,13 @@
 }
 
 .service:nth-child(1) .serviceIcon {
-  background-color: #dd4c62;
+  background-color: #808080;
 }
 .service:nth-child(2) .serviceIcon {
-  background-color: #025656;
+  background-color: #606060;
 }
 .service:nth-child(3) .serviceIcon {
-  background-color: #6c5c0c;
+  background-color: #a0a0a0;
 }
 
 .counterList {
@@ -84,7 +84,7 @@
 
 .counter h1 {
   font-size: 48px;
-  color: #dd4c62;
+  color: #c0c0c0;
 }
 
 .counter p {

@@ -39,19 +39,19 @@
 
 /* WE'LL NOT GIVE BACKGROUND COLOR TO THE FIRST AND LAST ITEMS (to keep scrolling effect consistent) */
 .pItem:nth-child(3) {
-  background: linear-gradient(to right, transparent, #260622);
+  background: linear-gradient(to right, transparent, #2d2d2d);
 }
 
 .pItem:nth-child(4) {
-  background: linear-gradient(to right, #260622, #02222e);
+  background: linear-gradient(to right, #2d2d2d, #1a1a1a);
 }
 
 .pItem:nth-child(5) {
-  background: linear-gradient(to right, #02222e, #12071f);
+  background: linear-gradient(to right, #1a1a1a, #000000);
 }
 
 .pItem:nth-child(6) {
-  background: linear-gradient(to right, #12071f, transparent);
+  background: linear-gradient(to right, #000000, transparent);
 }
 
 .pProgress {
@@ -90,7 +90,8 @@
 }
 
 .pText button {
-  background-color: pink;
+  background-color: #c0c0c0;
+  color: #000000;
   padding: 12px;
   border-radius: 10px;
   border: none;
