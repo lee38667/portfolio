@@ -42,7 +42,6 @@ const services = [
     id: 1,
     img: "/service1.png",
     title: "Web Development",
-    counter: 25,
   },
   {
     id: 2,
@@ -70,7 +69,7 @@ const Services = () => {
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          How do I help?
+          How Can I Help You?
         </motion.h1>
         <motion.div
           variants={listVariants}
@@ -89,15 +88,10 @@ const Services = () => {
               </div>
               <div className="serviceInfo">
                 <h2>{service.title}</h2>
-                <h3>{service.counter} Projects</h3>
               </div>
             </motion.div>
           ))}
         </motion.div>
-        <div className="counterList">
-          <Counter from={0} to={75} text="Projects Completed" />
-          <Counter from={0} to={50} text="Happy Clients" />
-        </div>
       </div>
       <div className="sSection right">
         {currentServiceId === 1 ? (

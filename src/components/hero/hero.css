@@ -13,15 +13,6 @@
   z-index: -1;
 }
 
-/* Hide Spline watermark */
-.bg [data-spline-watermark],
-.bg a[href*="spline.design"],
-.bg div[style*="spline.design"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
 .hImg {
   position: absolute;
   bottom: 0;
@@ -55,6 +46,109 @@
 
 .hTitle span {
   color: #e0e0e0;
+}
+
+/* Typing Animation Styles */
+.skillsTyping {
+  margin-top: -30px;
+  margin-left: 4px;
+}
+
+.typingText {
+  font-size: 20px;
+  color: #c0c0c0;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.cursor {
+  color: #c0c0c0;
+  font-weight: 100;
+  animation: blink .5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Download CV Button Styles */
+.cvDownload {
+  margin-top: -20px;
+  margin-left: 0px;
+}
+
+.cvButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2d2d2d, #404040);
+  color: #e0e0e0;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #606060;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cvButton:hover {
+  background: linear-gradient(135deg, #404040, #606060);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.cvButton svg {
+  transition: transform 0.3s ease;
+}
+
+.cvButton:hover svg {
+  transform: translateY(2px);
+}
+
+/* Social Media Links Styles */
+.socialLinks {
+  display: flex;
+  gap: 10px;
+  margin-top: -10px;
+  margin-left: 0px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2d2d2d, #404040);
+  color: #e0e0e0;
+  border-radius: 50%;
+  text-decoration: none;
+  border: 1px solid #606060;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.socialLink:hover {
+  background: linear-gradient(135deg, #404040, #606060);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
+  border-color: #808080;
+}
+
+.socialLink svg {
+  transition: transform 0.3s ease;
+}
+
+.socialLink:hover svg {
+  transform: scale(1.1);
 }
 
 .awards {
