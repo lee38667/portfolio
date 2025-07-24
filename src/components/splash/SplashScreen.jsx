@@ -51,6 +51,7 @@ const FallingIcon = ({ icon, delay }) => {
         src={icon.image} 
         alt={icon.name}
         className="icon-image"
+        loading="lazy"
         style={{
           filter: `drop-shadow(0 0 8px ${icon.color})`,
         }}

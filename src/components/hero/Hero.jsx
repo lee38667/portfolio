@@ -244,7 +244,7 @@ const Hero = () => {
           />
         </Suspense>
         <div className="hImg">
-          <img src="/202411.png" alt="" />
+          <img src="/202411.png" alt="" loading="lazy" />
         </div>
       </div>
     </div>

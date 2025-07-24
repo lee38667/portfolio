@@ -139,7 +139,7 @@ const Services = () => {
           >
             <div className="service-header">
               <div className="serviceIcon">
-                <img src={service.img} alt={service.title} />
+                <img src={service.img} alt={service.title} loading="lazy" />
               </div>
               <h2 className="service-title">{service.title}</h2>
             </div>

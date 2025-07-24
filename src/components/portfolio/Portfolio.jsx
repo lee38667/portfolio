@@ -87,7 +87,7 @@ const ListItem = ({ item }) => {
         animate={isInView ? "animate" : "initial"}
         className="pImg"
       >
-        <img src={item.img} alt="" />
+        <img src={item.img} alt="" loading="lazy" />
       </motion.div>
       <motion.div
         variants={textVariants}
