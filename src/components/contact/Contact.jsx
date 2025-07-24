@@ -2,7 +2,7 @@ import "./contact.css";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import ContactSvg from "./ContactSvg";
+import ChatKeyboard from "./ChatKeyboard";
 
 const listVariant = {
   initial: {
@@ -65,7 +65,7 @@ const Contact = () => {
             Let's work together
           </motion.h1>
           <motion.div variants={listVariant} className="formItem">
-            <label>Name</label>
+            <label>Name / Company</label>
             <input type="text" name="user_username" placeholder="Your Name" />
           </motion.div>
           <motion.div variants={listVariant} className="formItem">
@@ -91,7 +91,7 @@ const Contact = () => {
           {error && <span>Something went wrong!</span>}
         </motion.form>
       </div>
-      <div className="cSection"><ContactSvg/></div>
+      <div className="cSection"><ChatKeyboard/></div>
     </div>
   );
 };
