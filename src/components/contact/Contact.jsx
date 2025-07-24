@@ -29,15 +29,24 @@ const Contact = () => {
     e.preventDefault();
     
     const formData = new FormData(form.current);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
     
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setSuccess(true);
         setError(false);
         form.current.reset();
@@ -61,18 +70,8 @@ const Contact = () => {
           ref={form}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           onSubmit={sendEmail}
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <div style={{ display: "none" }}>
-            <label>
-              Don't fill this out if you're human: <input name="bot-field" />
-            </label>
-          </div>
           <motion.h1 variants={listVariant} className="cTitle">
             Let's work together
           </motion.h1>
