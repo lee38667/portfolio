@@ -23,6 +23,8 @@ const FallingIcon = ({ icon, delay }) => {
     rotation: Math.random() * 360,
   });
 
+  console.log(`Rendering falling icon: ${icon.name} at x: ${startPosition.x}`); // Debug log
+
   return (
     <motion.div
       className="falling-icon"
@@ -64,6 +66,7 @@ const SplashScreen = ({ onComplete }) => {
   const [showIcons, setShowIcons] = useState(false);
 
   useEffect(() => {
+    console.log('SplashScreen mounted'); // Debug log
     // Start showing falling icons after a brief delay
     const timer = setTimeout(() => {
       setShowIcons(true);
@@ -71,6 +74,8 @@ const SplashScreen = ({ onComplete }) => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  console.log('SplashScreen rendering'); // Debug log
 
   return (
     <motion.div
