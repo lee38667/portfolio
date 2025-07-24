@@ -39,24 +39,24 @@
 
 /* WE'LL NOT GIVE BACKGROUND COLOR TO THE FIRST AND LAST ITEMS (to keep scrolling effect consistent) */
 .pItem:nth-child(3) {
-  background: linear-gradient(to right, transparent, #2d2d2d);
+  background: linear-gradient(to right, transparent, #260622);
 }
 
 .pItem:nth-child(4) {
-  background: linear-gradient(to right, #2d2d2d, #1a1a1a);
+  background: linear-gradient(to right, #260622, #02222e);
 }
 
 .pItem:nth-child(5) {
-  background: linear-gradient(to right, #1a1a1a, #000000);
+  background: linear-gradient(to right, #02222e, #12071f);
 }
 
 .pItem:nth-child(6) {
-  background: linear-gradient(to right, #000000, transparent);
+  background: linear-gradient(to right, #12071f, transparent);
 }
 
 .pProgress {
   position: sticky;
-  width: 50px;
+  width: 80px;
   height: 80px;
   left: 0;
   bottom: 80%;
@@ -90,8 +90,7 @@
 }
 
 .pText button {
-  background-color: #c0c0c0;
-  color: #000000;
+  background-color: pink;
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -114,22 +113,145 @@
 @media (max-width: 1024px) {
   .pItem {
     flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
   }
 
   .pImg,
   .pText {
-    width: 80%;
+    width: 90%;
+    max-width: 600px;
   }
 
   .pProgress {
     bottom: 100px;
     left: 100%;
   }
+
+  .pText h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .pText p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .pText button {
+    align-self: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 768px) {
+  .portfolio {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .pList {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .pList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pItem {
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100vh;
+    min-height: 600px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+    scroll-snap-align: start;
+    justify-content: center;
+  }
+
+  .pImg,
+  .pText {
+    width: 100%;
+    max-width: 90vw;
+  }
+
+  .pImg {
+    height: 250px;
+    max-width: 400px;
+    align-self: center;
+  }
+
+  .pImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .pText {
+    text-align: center;
+    max-width: 350px;
+    align-self: center;
+  }
+
+  .pText h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .pText p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .pText button {
+    padding: 12px 20px;
+    font-size: 14px;
+    align-self: center;
+  }
+
   .pProgress {
-    width: 50px;
-    height: 50px;
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pItem {
+    padding: 30px 15px;
+    min-height: 500px;
+  }
+
+  .pImg {
+    height: 200px;
+    max-width: 300px;
+  }
+
+  .pText {
+    max-width: 300px;
+  }
+
+  .pText h1 {
+    font-size: 20px;
+  }
+
+  .pText p {
+    font-size: 13px;
+  }
+
+  .pText button {
+    padding: 10px 16px;
+    font-size: 13px;
   }
 }
