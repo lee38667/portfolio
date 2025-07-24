@@ -23,6 +23,7 @@ a {
 }
 
 .container {
+  width: 100%;
   max-width: 1536px;
   padding-left: 16px;
   padding-right: 16px;
@@ -31,35 +32,60 @@ a {
 }
 
 section {
-  height: 100vh;
+  min-height: 80vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 1280px) {
   .container {
-    max-width: 640px;
+    max-width: 1000px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  section {
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   .container {
-    max-width: 768px;
+    max-width: 800px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  section {
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
   .container {
-    max-width: 1024px;
+    max-width: 100vw;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  section {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-height: 60vh;
   }
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
   }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+  section {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 50vh;
   }
 }
