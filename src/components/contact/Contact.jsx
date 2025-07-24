@@ -25,7 +25,7 @@ const Contact = () => {
   const ref = useRef();
   const form = useRef();
 
-    const sendEmail = async (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     
     const formData = new FormData(form.current);
@@ -55,7 +55,7 @@ const Contact = () => {
   const isInView = useInView(ref, { margin: "-200px" });
 
   return (
-    <div className="contact" ref={ref} onSubmit={sendEmail}>
+    <div className="contact" ref={ref}>
       <div className="cSection">
         <motion.form
           ref={form}
@@ -65,6 +65,7 @@ const Contact = () => {
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
+          onSubmit={sendEmail}
         >
           <input type="hidden" name="form-name" value="contact" />
           <div style={{ display: "none" }}>
