@@ -1,0 +1,33 @@
+{
+  "name": "Lineekela Shinavene Portfolio",
+  "short_name": "LeePortfolio",
+  "description": "Full Stack Developer & UI Designer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#252525",
+  "theme_color": "#252525",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512", 
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "design"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}

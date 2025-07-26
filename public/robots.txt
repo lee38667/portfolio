@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://leep0rtfolio.netlify.app/sitemap.xml
+
+# Crawl delays
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /server/
+Disallow: /*.env
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /build/

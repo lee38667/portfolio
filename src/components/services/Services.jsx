@@ -128,7 +128,7 @@ const Services = () => {
         className="serviceList"
       >
         {services.map((service) => (
-          <motion.div
+          <motion.article
             variants={listVariants}
             className="service-card"
             key={service.id}
@@ -136,24 +136,38 @@ const Services = () => {
               y: -10, 
               transition: { duration: 0.3 } 
             }}
+            role="article"
+            aria-labelledby={`service-title-${service.id}`}
           >
-            <div className="service-header">
-              <div className="serviceIcon">
-                <img src={service.img} alt={service.title} loading="lazy" />
+            <header className="service-header">
+              <div className="serviceIcon" role="img" aria-label={`${service.title} icon`}>
+                <img 
+                  src={service.img} 
+                  alt={`${service.title} service icon`} 
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                />
               </div>
-              <h2 className="service-title">{service.title}</h2>
-            </div>
+              <h2 id={`service-title-${service.id}`} className="service-title">{service.title}</h2>
+            </header>
             <p className="service-description">{service.description}</p>
-            <ul className="service-features">
+            <ul className="service-features" role="list">
               {service.features.map((feature, index) => (
-                <li key={index} className="feature-item">
-                  <span className="feature-bullet">✓</span>
+                <li key={index} className="feature-item" role="listitem">
+                  <span className="feature-bullet" aria-hidden="true">✓</span>
                   {feature}
                 </li>
               ))}
             </ul>
-            <button className="service-button">Learn More</button>
-          </motion.div>
+            <button 
+              className="service-button"
+              aria-label={`Learn more about ${service.title}`}
+              type="button"
+            >
+              Learn More
+            </button>
+          </motion.article>
         ))}
       </motion.div>
     </div>

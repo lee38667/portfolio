@@ -1,16 +1,12 @@
-// import Hero from "./components/hero/Hero";
-// import Services from "./components/services/Services";
-// import Portfolio from "./components/portfolio/Portfolio";
-// import Contact from "./components/contact/Contact";
-
-import { lazy, Suspense, useState, useEffect } from "react";
-import LazyLoad from "react-lazyload";
+import { useState, useEffect } from "react";
+import { HelmetProvider } from 'react-helmet-async';
 import SplashScreen from "./components/splash/SplashScreen";
-
-const Hero = lazy(() => import("./components/hero/Hero"));
-const Services = lazy(() => import("./components/services/Services"));
-const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
-const Contact = lazy(() => import("./components/contact/Contact"));
+import SEO from "./components/SEO";
+import PerformanceMonitor from "./components/PerformanceMonitor";
+import Hero from "./components/hero/Hero";
+import Services from "./components/services/Services";
+import Portfolio from "./components/portfolio/Portfolio";
+import Contact from "./components/contact/Contact";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -41,36 +37,33 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#home">
-            <Hero />
-          </section>
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#services">
-            <Services />
-          </section>{" "}
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"600vh"} offset={-100}>
-          {/* <section id="#portfolio"> */}
+    <HelmetProvider>
+      <SEO />
+      <PerformanceMonitor />
+      
+      {/* Skip link for accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      
+      <main id="main-content" className="container">
+        <section id="hero" aria-label="Hero Section">
+          <Hero />
+        </section>
+        
+        <section id="services" aria-label="Services Section">
+          <Services />
+        </section>
+        
+        <section id="portfolio" aria-label="Portfolio Section">
           <Portfolio />
-          {/* </section> */}{" "}
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#contact">
-            <Contact />
-          </section>{" "}
-        </LazyLoad>
-      </Suspense>
-    </div>
+        </section>
+        
+        <section id="contact" aria-label="Contact Section">
+          <Contact />
+        </section>
+      </main>
+    </HelmetProvider>
   );
 };
 
