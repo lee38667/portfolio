@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineekela J. Shinavene | Software Engineer</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Lineekela J. Shinavene – Software Engineer" />
+<meta property="og:description" content="Software Engineer specializing in full-stack development, 3D graphics, and interactive web experiences. Hackathon winner and technical innovator." />
+<meta property="og:image" content="https://github.com/lee38667/portfolio/og-image.png" />
+<meta property="og:url" content="https://github.com/lee38667/portfolio" />
+<meta property="og:type" content="website" />
+
+
+    <link rel="stylesheet" href="orchestra.css">
+    <link rel="stylesheet" href="modular-slider.css">
+
+
+    <style>
+        .ttcommons {
+            font-family: 'TTCommonsLocal', sans-serif;
+        }
+
+        .tools-description.ttcommons {
+            font-family: 'TTCommonsLocal', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'TTCommonsLocal';
+            src: url('./fonts/Fontspring-DEMO-tt_commons_pro_regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* --- CATEGORIES SECTION --- */
+
+        /* ADD THIS HERE */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(.165, .84, .44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000000;
+            color: white;
+        }
+
+        @font-face {
+            font-family: 'HelveticaLocal';
+            src: url('./fonts/Helvetica-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'FormalScriptLocal';
+            src: url('./fonts/FormalScriptBold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'AldynHeartItalic';
+            src: url('./fonts/Aldyn Heart Italic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+
+
+
+        @font-face {
+            font-family: 'AlroLocal';
+            src: url('./fonts/alro-alro-bold-700.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'YapariLocal';
+            src: url('./fonts/YapariTrial-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .hero-section {
+            background:
+                radial-gradient(circle at 15% 85%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
+                /* Subtle cyan tech glow */
+                linear-gradient(135deg, #0a0e27 0%, #1a1a2e 35%, #0b141f 70%, #050a15 100%);
+            /* Dark monochrome tech gradient */
+            min-height: 95vh;
+            padding: 2rem;
+            border-radius: 0 0 60px 60px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .hero-section.hero-active {
+            box-shadow: inset 0 -80px 120px rgba(0, 0, 0, 0.35);
+            transition: box-shadow 0.6s ease;
+        }
+
+
+        /* --- YOUR PICTURE INTEGRATION (CENTERED) --- */
+        .hero-section::before {
+            transform: translateX(-50%) translateY(var(--hero-parallax, 0)) scale(0.77625);
+            content: '';
+            position: absolute;
+            bottom: 0;
+            /* Aligned to bottom so you "stand" on the curve */
+            left: 50%;
+            transform: translateX(-50%) scale(0.77625);
+            /* decreased 10% from 0.8625 */
+            transform-origin: center bottom;
+            width: min(80vw, 700px);
+            /* Larger, responsive size */
+            height: 120%;
+            background-image: url("/images/202411.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            opacity: 0.85;
+            /* Increased opacity for better visibility */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        nav,
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            /* Keeps text above the image */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo img {
+            height: 36px;
+            /* match header height visually */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'ABRIL', sans-serif;
+            font-weight: 700;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            background: white;
+            color: #474747;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            background: #313131;
+            border-radius: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-family: 'HelveticaLocal', Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .graphic-word {
+            letter-spacing: -0.03em;
+        }
+
+        .designer-first {
+            font-family: 'FormalScriptLocal', serif;
+            font-weight: 700;
+            display: inline-block;
+            vertical-align: baseline;
+            margin-right: 0.02em;
+            font-size: 1.8em;
+            /* increased 20% from 1.5em */
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 500px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+
+        }
+
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            color: #a7a7a7;
+            flex-shrink: 0;
+        }
+
+        .service-number {
+            font-size: 0.8rem;
+            margin-bottom: 0.2rem;
+            opacity: 0.7;
+        }
+
+        .service-name {
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'TTCommonsLocal', sans-serif;
+        }
+
+        .hero-right {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-right h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-family: 'YapariLocal', sans-serif;
+        }
+
+        .hero-right p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* --- BRANDS --- */
+        .brands-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .brands-title {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+        }
+
+        .brand-icon {
+            width: 12px;
+            height: 12px;
+            background: #ff6b35;
+            border-radius: 2px;
+        }
+
+        .brand-logo {
+            display: block;
+            height: 56px;
+            width: auto;
+        }
+
+        /* --- ABOUT & CAROUSEL --- */
+        .about-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1.2fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .about-divider {
+            width: 1px;
+            height: 180px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .section-label {
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .about-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .initial-part {
+            font-family: serif;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: -2px;
+            font-size: 1.3em;
+        }
+
+        .portfolio-part {
+            font-family: 'AldynHeartItalic', serif;
+            font-weight: 400;
+            font-size: 1.6em;
+            margin-left: -0.1em;
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            top: 0.20em;
+            left: -0.20em;
+        }
+
+
+        .about-description {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #aaa;
+            font-weight: 400;
+            max-width: 600px;
+            text-align: right;
+            margin-left: auto;
+            font-family: 'TTCommonsLocal', sans-serif;
+        }
+
+        .about-description b {
+            color: white;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-carousel {
+            overflow: hidden;
+            padding: 2rem 0;
+            background: #050505;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            /* pull to viewport left */
+            margin-right: -50vw;
+            /* pull to viewport right */
+            width: 100vw;
+            /* make full viewport width */
+            max-width: 100vw;
+        }
+
+        /* --- CAROUSEL EDGE BLUR / FADE --- */
+        .portfolio-carousel::before,
+        .portfolio-carousel::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 140px;
+            /* blur width */
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .portfolio-carousel::before {
+            left: 0;
+            background: linear-gradient(to right,
+                    #050505 0%,
+                    rgba(5, 5, 5, 0.85) 30%,
+                    rgba(5, 5, 5, 0.4) 60%,
+                    rgba(5, 5, 5, 0) 100%);
+        }
+
+        .portfolio-carousel::after {
+            right: 0;
+            background: linear-gradient(to left,
+                    #050505 0%,
+                    rgba(5, 5, 5, 0.85) 30%,
+                    rgba(5, 5, 5, 0.4) 60%,
+                    rgba(5, 5, 5, 0) 100%);
+        }
+
+
+        .carousel-container {
+            display: flex;
+            gap: 20px;
+            animation: scroll 40s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .portfolio-item {
+            min-width: 300px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ensure images inside portfolio items scale to fit the box */
+        .portfolio-item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* --- PROFILE ABOUT SECTION --- */
+        .profile-about-section {
+            max-width: 1400px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+
+
+        .about-details {
+            position: relative;
+            z-index: 1;
+            font-family: 'YapariLocal', sans-serif;
+        }
+
+        .about-details h3 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #49c8d3;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-details h3:first-child {
+            margin-top: 0;
+        }
+
+        .about-details p,
+        .about-details ul {
+            font-family: 'TTCommonsLocal', sans-serif;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: #cfcfcf;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .about-details ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .about-details a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .about-details a:hover {
+            color: #60d7ff;
+        }
+
+        .about-right {
+            text-align: right;
+            
+        }
+
+        .profile-image-container {
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- CATEGORY CARDS --- */
+        .category-card {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            border: none;
+            backdrop-filter: none;
+            transition: transform 0.6s ease;
+        }
+
+        .category-card:hover {
+            transform: scale(1.02);
+        }
+
+
+        .category-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: #ff6b35;
+            box-shadow: 0 20px 30px rgba(255, 107, 53, 0.2);
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .category-thumb {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.75);
+            transition: transform 0.6s ease;
+        }
+
+        .category-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.75);
+            transition: transform 0.8s ease;
+        }
+
+        /* Subtle cinematic zoom on hover */
+        .category-card:hover .category-video {
+            transform: scale(1.08);
+        }
+
+
+        .category-card:hover .category-thumb {
+            transform: scale(1.08);
+        }
+
+
+        .category-title {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+
+            font-family: Helvetica, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: white;
+        }
+
+
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-section::before {
+                width: min(70vw, 600px);
+                opacity: 0.4;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .services {
+                margin: 3rem auto;
+            }
+
+            .hero-right {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-section::before {
+                width: min(80vw, 450px);
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0.3;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* --- LIQUID GLASS BUTTON STYLES --- */
+        #glass-button-container {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+            cursor: pointer;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                inset 0 0 15px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #glass-button-container:hover {
+            transform: translateX(-50%) scale(1.1);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(91, 5, 5, 0.4);
+        }
+
+        #glass-button-container:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        #glass-button-container canvas {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .glass-button-text {
+            position: relative;
+            z-index: 1001;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+            pointer-events: none;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'TTCommonsLocal', sans-serif;
+        }
+
+        /* --- TOOLS SECTION --- */
+        .tools-section {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .tools-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tools-right {
+            padding-left: 2rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tools-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            font-weight: 300;
+            font-family: TTCommonsLocal;
+        }
+
+        .tools-description b {
+            color: #49c8d3;
+        }
+
+        .tools-title {
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+            gap: 0.75rem;
+            align-items: center;
+            justify-items: center;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease;
+            padding: 0.25rem;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            display: block;
+            object-fit: contain;
+            padding: 4px;
+            box-sizing: border-box;
+            max-width: 100%;
+            opacity: 0.85;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .tool-item:hover .tool-icon {
+            opacity: 1;
+        }
+
+        .tool-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tool-item:hover .tool-name {
+            opacity: 0.6;
+        }
+
+        /* --- CATEGORIES SECTION --- */
+        /* --- FULLSCREEN CATEGORIES GRID --- */
+        .categories-section {
+            width: 100vw;
+            height: 180vh;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+
+        .category-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .category-btn:hover {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .categories-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .category-btn {
+                padding: 1rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .tools-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .tools-right {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tools-grid {
+                gap: 2.5rem;
+            }
+
+            .tool-icon {
+                width: 36px;
+                height: 36px;
+                display: block;
+                object-fit: contain;
+                padding: 3px;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-section {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 100vh);
+                height: auto;
+            }
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), #000);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .footer-logo {
+            height: 42px;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #b5b5b5;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 4rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-column a {
+            font-size: 0.875rem;
+            text-decoration: none;
+            color: #d0d0d0;
+            font-family: 'TTCommonsLocal', sans-serif;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff6b35;
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        /* --- FOOTER NAME --- */
+        .footer-name {
+            grid-column: 1 / -1;
+            /* spans full width */
+            font-family: 'HelveticaLocal', Helvetica, Arial, sans-serif;
+            font-size: clamp(4rem, 18vw, 14rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            color: rgba(255, 255, 255, 0.06);
+            margin-bottom: 3rem;
+            pointer-events: none;
+            user-select: none;
+        }
+
+
+        /* --- FOOTER RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+                gap: 3rem;
+            }
+
+            .footer-column a:hover {
+                transform: none;
+            }
+        }
+
+        /* --- MOBILE TWEAKS (small devices) --- */
+        @media (max-width: 480px) {
+            .hero-section {
+                min-height: 70vh;
+                padding: 0.75rem;
+                border-radius: 0 0 28px 28px;
+            }
+
+            .hero-section::before {
+                width: min(90vw, 420px);
+                opacity: 0.25;
+                bottom: -10%;
+                height: 180%;
+            }
+
+            nav {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .hero-content {
+                padding: 1rem 0;
+                gap: 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(2rem, 8vw, 3.6rem);
+            }
+
+            .services {
+                max-width: 100%;
+                margin: 2rem auto;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item {
+                min-width: 180px;
+                height: auto;
+            }
+
+            .portfolio-carousel {
+                left: 0;
+                right: 0;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .categories-section {
+                height: auto !important;
+                grid-template-rows: auto;
+            }
+
+            .category-card {
+                min-height: 140px;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .footer-name {
+                font-size: clamp(2rem, 12vw, 8rem);
+                opacity: 0.04;
+            }
+
+            /* tighter tools grid for very small screens */
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+                gap: 0.5rem;
+            }
+
+            .tool-icon {
+                width: 40px;
+                height: 40px;
+                display: block;
+                object-fit: contain;
+                padding: 3px;
+                box-sizing: border-box;
+            }
+
+            .tool-name {
+                font-size: 0.6rem;
+            }
+
+            /* Reduce vertical gaps and paddings for compact mobile layout */
+            .about-section {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            .about-grid {
+                gap: 1rem;
+                grid-template-columns: 1fr;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-description {
+                max-width: 100%;
+                margin-left: 0;
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
+            .portfolio-carousel {
+                padding: 1rem 0;
+            }
+
+            .portfolio-item {
+                min-width: 160px;
+                height: auto;
+            }
+
+            .brands-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .profile-about-section {
+                margin: 2rem auto;
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .tools-section {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            .hero-section {
+                min-height: 60vh;
+            }
+
+            .hero-content {
+                padding: 0.6rem 0;
+            }
+
+            .services {
+                margin-top: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* ... existing styles ... */
+
+            /* 1. Reduce the massive space around the "Initial Portfolio" heading */
+            .about-section {
+                margin: 1rem auto !important;
+                /* Reduced from 1.5rem */
+            }
+
+            .about-grid {
+                gap: 0.5rem !important;
+                /* Tighten gap between title and description */
+                margin-bottom: 1rem !important;
+            }
+
+            .about-title {
+                font-size: 2.2rem !important;
+                /* Scale down the container font-size */
+                margin-bottom: 0.5rem !important;
+            }
+
+            /* 2. Adjust the specific parts of the title to prevent overlapping/extra height */
+            .initial-part {
+                font-size: 1.1em !important;
+                letter-spacing: -1px !important;
+            }
+
+            .portfolio-part {
+                font-size: 1.2em !important;
+                top: 0.1em !important;
+                /* Pull the script font closer to the baseline */
+                left: -0.1em !important;
+            }
+
+            /* 3. Remove the divider completely on mobile to save vertical space */
+            .about-divider {
+                display: none;
+            }
+
+            /* 4. Tighten the description text */
+            .about-description {
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* ... existing mobile styles ... */
+
+            .brands-section {
+                padding: 1.5rem 0.5rem !important;
+                /* Reduce side padding to give logos more room */
+            }
+
+            .brands-grid {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                /* Force all items onto one line */
+                justify-content: space-between !important;
+                gap: 0.5rem !important;
+                /* Minimal gap to prevent touching */
+                align-items: center !important;
+            }
+
+            .brand-item {
+                flex: 1;
+                /* Ensure each item takes up equal space */
+                display: flex;
+                justify-content: center;
+            }
+
+            .brand-logo {
+                height: auto !important;
+                /* Allow height to scale proportionally */
+                max-height: 35px !important;
+                /* Cap the height so they fit vertically */
+                width: 100% !important;
+                /* Let them fill the flex container width */
+                max-width: 80px !important;
+                /* Prevent any single logo from becoming too large */
+                object-fit: contain !important;
+                /* Ensure logos aren't distorted */
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* ... your other mobile styles ... */
+
+            /* 1. Decrease the side blur power (Edge Fades) */
+            .portfolio-carousel::before,
+            .portfolio-carousel::after {
+                width: 60px !important;
+                /* Reduced from 140px */
+            }
+
+            .portfolio-carousel::before {
+                background: linear-gradient(to right,
+                        rgba(5, 5, 5, 0.8) 0%,
+                        rgba(5, 5, 5, 0) 100%) !important;
+            }
+
+            .portfolio-carousel::after {
+                background: linear-gradient(to left,
+                        rgba(5, 5, 5, 0.8) 0%,
+                        rgba(5, 5, 5, 0) 100%) !important;
+            }
+
+            /* 2. Decrease poster carousel size by 40% */
+            .portfolio-item {
+                min-width: 130px !important;
+                /* ~40% reduction from 220px/mobile baseline */
+                padding: 0 5px !important;
+                /* Tighten horizontal spacing */
+            }
+
+            .portfolio-item img {
+                height: 220px !important;
+                /* Scale down the height to keep aspect ratio */
+                width: auto !important;
+                filter: brightness(0.9);
+                /* Slightly boost brightness for mobile screens */
+            }
+
+            /* 3. Slow down the scroll slightly for better visibility on smaller posters */
+            .carousel-container {
+                animation: scroll 20s linear infinite !important;
+                gap: 12px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* 1. Decrease overall hero section size */
+            .hero {
+                padding-top: 60px !important;
+                /* Move content up to show more of the image */
+                height: auto !important;
+                min-height: 80vh !important;
+            }
+
+            /* 2. Make the picture more visible */
+            .hero-image-container {
+                height: 350px !important;
+                /* Shorter container to prevent the image from being cut off */
+                margin-top: -20px !important;
+                opacity: 1 !important;
+                /* Ensure full visibility */
+            }
+
+            .hero-image {
+                object-position: center 20% !important;
+                /* Adjusts the crop to show the face/upper body better */
+                transform: scale(0.9) !important;
+                /* Slightly shrink the image to fit the screen better */
+            }
+
+            /* 3. Decrease size of text elements */
+            .hero-content h1 {
+                font-size: 2.8rem !important;
+                /* Smaller main heading */
+                margin-bottom: 0.5rem !important;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem !important;
+                /* Smaller sub-text */
+                max-width: 280px !important;
+                margin: 0 auto 1.5rem !important;
+            }
+
+            .hero-btn {
+                padding: 0.8rem 1.8rem !important;
+                /* Smaller button */
+                font-size: 0.9rem !important;
+            }
+        }
+        /* --- GLASSMORPHISM POPUP --- */
+.glass-popup {
+    position: fixed;
+    bottom: 30px;
+    right: -400px; /* Hidden by default */
+    width: 280px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    transition: right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'TTCommonsLocal', sans-serif;
+}
+
+.glass-popup.show {
+    right: 30px; /* Slide in position */
+}
+
+.popup-content {
+    position: relative;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.popup-content a {
+    color: #49c8d3; /* Matching your orange theme */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.popup-content a:hover {
+    text-decoration: underline;
+}
+
+#close-popup {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#close-popup:hover {
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .glass-popup {
+        width: 220px;
+        bottom: 100px; /* Higher up to avoid overlapping your "Connect" button */
+        font-size: 0.8rem;
+    }
+}
+
+/* --- PC RECOMMENDED LOADING --- */
+.pc-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 10050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    opacity: 1;
+    visibility: visible;
+    cursor: default;
+}
+
+.pc-loading.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.pc-loading__card {
+    width: min(520px, 90vw);
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(8, 10, 16, 0.6);
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.pc-loading__icon {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pc-loading__title {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.pc-loading__text {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+/* --- CUSTOM CURSOR --- */
+body {
+    cursor: none;
+}
+
+.custom-cursor {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ff6b35; /* matches your accent color */
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease, background-color 0.2s ease;
+    z-index: 10000;
+}
+
+/* Cursor interaction */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+    transform: translate(-50%, -50%) scale(1.6);
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="pc-loading" id="pc-loading" role="status" aria-live="polite">
+        <div class="pc-loading__card">
+            <svg class="pc-loading__icon" viewBox="0 0 64 64" aria-hidden="true">
+                <rect x="6" y="10" width="52" height="34" rx="4" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M18 54h28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M26 44v6M38 44v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <circle cx="48" cy="24" r="3" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <div class="pc-loading__title">Best viewed on desktop</div>
+            <div class="pc-loading__text">
+                This portfolio is designed for large screens and full-motion visuals.
+            </div>
+        </div>
+    </div>
+
+    <section class="hero-section reveal">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Layerstop logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button" aria-label="Go to contact page">
+                Get in touch
+                <span class="arrow">→</span>
+            </a>
+        </nav>
+
+        <div class="hero-content reveal">
+            <div class="hero-text">
+
+                <h1><span class="graphic-word">Software</span><br>
+                    <span class="designer-first">E</span>ngineer
+                </h1>
+
+                <div class="services">
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                        </svg>
+                        <div class="service-name">Web Development</div>
+                    </div>
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <div class="service-name">Backend APIs</div>
+                    </div>
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="8" y1="9" x2="8" y2="20"></line>
+                        </svg>
+
+                        <div class="service-name">Graphics Designing</div>
+                    </div>
+                    <div class="service-item">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+
+                        <div class="service-name">IT Support</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <h3>Technology that solves problems.</h3>
+                <p class="ttcommons">Software Engineer and Computer Science student with a track record of winning hackathons (AISOD AI Hackathon 2025 Winner, Rosatom Hackatom 3rd Place). Building full-stack web applications, 3D interactive experiences, and innovative technical solutions that drive real-world impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="brands-title">Trusted by innovative brands</div>
+        <div class="brands-grid">
+            <div class="brand-item"><a href="https://ibb.co/vxRgyCD6" target="_blank" rel="noopener noreferrer"><img
+                        class="brand-logo" src="/images/glbLogo.png"
+                        alt="GLB logo"></a></div>
+            <div class="brand-item"><a href="https://imgbb.com/" target="_blank" rel="noopener noreferrer"><img
+                        class="brand-logo" src="images/logo.png"
+                        alt=" logo"></a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section reveal">
+        <div class="about-grid">
+            <div class="about-left">
+                <p class="section-label"></p>
+                <h2 class="about-title"><span class="initial-part">Initial</span> <span
+                        class="portfolio-part">Portfolio</span></h2>
+            </div>
+
+            <div class="about-divider"></div>
+
+            <div class="about-right">
+                <p class="about-description">
+                    <b></b>
+                    This collection showcases the earliest phase of my design journey, created when I first began
+                    designing in the year 2020. It reflects the foundational skills, exploratory thinking, and
+                    early
+                    visual language that set the direction for my current work. These projects represent the starting
+                    point of my craft where experimentation, curiosity, and a growing understanding of design principles
+                    came together to form the base of my creative practice.
+                </p>
+            </div>
+        </div>
+
+        <div class="portfolio-carousel">
+            <div class="carousel-container">
+
+       
+
+                <div class="portfolio-item">
+                        <img src="images/apparel.jpg" alt="GLB Apparel">
+                    </a>
+                </div>
+
+            
+
+                <div class="portfolio-item">
+                        <img src="images/hoodie.jpg" alt="GLB Hoodie">
+                    </a>
+                </div>
+
+              <div class="portfolio-item">
+                        <img src="images/tote.jpg" alt="GLB Tote">
+                    </a>
+                </div>
+          
+          
+
+                <div class="portfolio-item">
+                        <img src="images/apparel.jpg" alt="GLB Apparel">
+                    </a>
+                </div>
+
+           
+
+                <div class="portfolio-item">
+                        <img src="images/hoodie.jpg" alt="GLB Hoodie">
+                    </a>
+                </div>
+    <div class="portfolio-item">
+                        <img src="images/pewa.jpg" alt="GLB Tote">
+                    </a>
+                </div>
+                 <div class="portfolio-item">
+                        <img src="images/firstShirt.png" alt="GLB First Shirt">
+                    </a>
+                </div>
+          
+             <div class="portfolio-item">
+                        <img src="images/hood.jpg" alt="GLB Hoodie">
+                    </a>
+                </div>
+
+                 <div class="portfolio-item">
+                        <img src="images/apparel1group.jpg" alt="GLB Tote">
+                    </a>
+                </div>
+                 <div class="portfolio-item">
+                        <img src="images/unnamed.png" alt="GLB Tote">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-about-section reveal" id="about">
+        <div class="about-details about-left">
+            <h3>Education</h3>
+            <ul>
+                <li>Namibia University of Science and Technology <div>2023–Present</div></li>
+                <li>Bachelor of Computer Science in Software Development</li>
+                <li>Academia Secondary School — Advanced Subsidiary Level <div>2022</div></li>
+            </ul>
+
+            <h3>Experience</h3>
+            <ul>
+                <li>Software Development Intern — Winville <div>June 2025 – Present</div></li>
+                <li>Freelancing — IT Support & Design <div>April 2020 – Present</div></li>
+                <li>Remote Technical Intern — Tayari Transitions <div>Dec 2024 – March 2025</div></li>
+                <li>IT Support Technician — Van Rhyn Primary School <div>2023 – Present</div></li>
+            </ul>
+
+            <h3>Achievements</h3>
+            <ul>
+                <li>Rosatom Global Hackatom Namibia 2025 — 3rd Place</li>
+                <li>AISOD AI Hackathon 2025 — Winner</li>
+            </ul>
+        </div>
+
+        <div class="profile-image-container reveal">
+            <img src="images/profile_silhouette.png" alt="Profile Silhouette">
+        </div>
+
+        <div class="about-details about-right">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>Web: React, Next.js, JavaScript, HTML, CSS</li>
+                <li>Programming: Java, Python</li>
+                <li>Databases: MySQL, SQL Server</li>
+                <li>Version Control: Git, GitHub</li>
+                <li>Design: Figma, Adobe Photoshop, Illustrator</li>
+                <li>Cybersecurity: Vulnerability Management, SOC Architecture</li>
+            </ul>
+
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Adaptability & Strategic Thinking</li>
+                <li>Communication & Collaboration</li>
+                <li>Attention to Detail & Creativity</li>
+            </ul>
+
+            <h3>Contact</h3>
+            <ul>
+                <li>Email: lee38667@gmail.com</li>
+                <li>Phone: 081 317 3577</li>
+                <li>Location: Windhoek, Namibia</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tools-section reveal">
+        <div class="tools-container">
+            <div class="tools-left">
+                <div class="tools-title">Technical Stack</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/react" alt="React" class="tool-icon">
+                        <span class="tool-name">React</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="Next.js" class="tool-icon">
+                        <span class="tool-name">Next.js</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="tool-icon">
+                        <span class="tool-name">JavaScript</span>
+                    </div>
+
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/python" alt="Python" class="tool-icon">
+                        <span class="tool-name">Python</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/github" alt="GitHub" class="tool-icon">
+                        <span class="tool-name">GitHub</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="tool-icon">
+                        <span class="tool-name">MySQL</span>
+                    </div>
+                    <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/figma" alt="Figma" class="tool-icon">
+                        <span class="tool-name">Figma</span>
+                    </div>
+                
+                          <div class="tool-item">
+                        <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" class="tool-icon">
+                        <span class="tool-name">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tools-right">
+                <p class="tools-description">
+                    I leverage a diverse <b>technical toolkit</b> including modern frameworks and <b>interactive graphic libraries</b> to build high - performance web applications and interactive experiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="orchestra-wrapper" id="projects">
+        <section class="orchestra-section orchestra-sticky">
+            <div class="orchestra-logo">
+                <div class="orchestra-col">
+                    <div class="orchestra-block orchestra-block-1"></div>
+                    <div class="orchestra-block orchestra-block-2"></div>
+                </div>
+                <div class="orchestra-col">
+                    <div class="orchestra-block orchestra-block-3"></div>
+                    <div class="orchestra-block orchestra-block-4"></div>
+                </div>
+                <div class="orchestra-col">
+                    <div class="orchestra-block orchestra-block-5"></div>
+                    <div class="orchestra-block orchestra-block-6"></div>
+                </div>
+            </div>
+
+            <div class="orchestra-cubes">
+                <div class="orchestra-cube cube-1">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+
+                <div class="orchestra-cube cube-2">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+
+                <div class="orchestra-cube cube-3">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+
+                <div class="orchestra-cube cube-4">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+
+                <div class="orchestra-cube cube-5">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+
+                <div class="orchestra-cube cube-6">
+                    <div class="orchestra-front"></div>
+                    <div class="orchestra-back"></div>
+                    <div class="orchestra-right"></div>
+                    <div class="orchestra-left"></div>
+                    <div class="orchestra-top"></div>
+                    <div class="orchestra-bottom"></div>
+                </div>
+            </div>
+
+            <div class="orchestra-header-1">
+                <h1>Portfolio stories in motion.</h1>
+            </div>
+
+            <div class="orchestra-header-2">
+                <h2>Design, code, and culture.</h2>
+                <p>
+                    Scroll to explore apparel drops, print editions, and interface
+                    experiments crafted to spotlight the GLB brand story.
+                </p>
+            </div>
+        </section>
+
+        <!-- <section class="orchestra-section orchestra-about">
+            <div class="orchestra-about-inner">
+                <h2>Explore the collections</h2>
+                <p>
+                    Each collection blends fashion, music-inspired graphics, and
+                    interactive design. Pick a lane and dive deeper.
+                </p>
+                <div class="orchestra-links">
+                    <a href="carousel try2.html" class="orchestra-link-card">
+                        <div class="orchestra-link-title">Print Editions</div>
+                    </a>
+                    <a href="https://redbluvr69.github.io/test-repo/" class="orchestra-link-card" target="_blank" rel="noopener noreferrer">
+                        <div class="orchestra-link-title">Apparel</div>
+                    </a>
+                    <a href="visual_design.html" class="orchestra-link-card">
+                        <div class="orchestra-link-title">Interfaces</div>
+                    </a>
+                    <a href="ventures.html" class="orchestra-link-card">
+                        <div class="orchestra-link-title">Ventures</div>
+                    </a>
+                </div>
+            </div>
+        </section> -->
+    </section>
+
+    <section class="modular-slider" aria-label="Modular slider showcase">
+        <div class="modular-slider__header">
+            <span>GLB Modular Slider</span>
+            <span>Click to advance</span>
+        </div>
+
+        <div class="modular-slider__stage">
+            <div class="modular-slider__titles">
+                <div class="modular-slider__title"><h1>Fishza Trading Services</h1></div>
+                <div class="modular-slider__title"><h1>Van Rhyn Registration Website</h1></div>
+                <div class="modular-slider__title"><h1>Youtube Video Editing</h1></div>
+                <div class="modular-slider__title"><h1>Personal Portfolio</h1></div>
+                <div class="modular-slider__title"><h1>Tayari Transition Brand Package</h1></div>
+                <div class="modular-slider__title"><h1>Fishza Trading Services Website</h1></div>
+                <div class="modular-slider__title"><h1></h1></div>
+            </div>
+            <div class="modular-slider__images">
+                <div class="modular-slider__img-top"></div>
+                <div class="modular-slider__img-bottom"></div>
+            </div>
+        </div>
+
+        <div class="modular-slider__footer">
+            <div class="modular-slider__links">
+                <a href="carousel try2.html">Print Editions</a>
+
+            </div>
+            <span>Tap anywhere</span>
+        </div>
+    </section>
+
+    <!-- Liquid Glass Button Container -->
+    <div id="glass-button-container">
+        <span class="glass-button-text">Connect</span>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+        function initLiquidButton(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const scene = new THREE.Scene();
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+            camera.position.z = 5;
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0xffffff, 2);
+            pointLight.position.set(2, 3, 4);
+            scene.add(pointLight);
+
+            const material = new THREE.MeshPhysicalMaterial({
+                color: 0xffffff,
+                roughness: 0,
+                metalness: 0.1,
+                transmission: 0.95,
+                thickness: 0.5,
+                ior: 1.5,
+                opacity: 0.8,
+                transparent: true,
+                clearcoat: 1,
+            });
+
+            // Torus Knot for that "liquid" complex look
+            const geometry = new THREE.TorusKnotGeometry(1.2, 0.4, 128, 32);
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            const animate = () => {
+                requestAnimationFrame(animate);
+                mesh.rotation.x += 0.01;
+                mesh.rotation.y += 0.015;
+                renderer.render(scene, camera);
+            };
+            animate();
+
+            // Click interaction
+            container.addEventListener('click', () => {
+                // Flash effect
+                material.emissive.setHex(0x333333);
+                setTimeout(() => {
+                    material.emissive.setHex(0x000000);
+                    // Redirect to contact page
+                    window.location.href = 'contact.html';
+                }, 100);
+
+                console.log("Connect button clicked! Redirecting...");
+            });
+        }
+
+        window.addEventListener('load', () => {
+            initLiquidButton('glass-button-container');
+        });
+    </script>
+
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('pc-loading');
+            if (!loader) return;
+            setTimeout(() => {
+                loader.classList.add('is-hidden');
+            }, 1200);
+            setTimeout(() => {
+                loader.remove();
+            }, 2000);
+        });
+    </script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script>
+    <script src="orchestra.js"></script>
+    <script src="modular-slider.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const hero = document.querySelector(".hero-section");
+        const heroText = document.querySelector(".hero-text");
+        const heroRight = document.querySelector(".hero-right");
+
+        // Main hero scroll interaction (guarded)
+        if (hero && heroText && heroRight) {
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: hero,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1.2,
+                }
+            })
+                .to(heroText, {
+                    y: -120,
+                    scale: 0.92,
+                    opacity: 0.85,
+                    ease: "power2.out"
+                }, 0)
+                .to(heroRight, {
+                    y: -80,
+                    opacity: 0,
+                    ease: "power2.out"
+                }, 0);
+
+            // Parallax effect for hero background image (::before)
+            gsap.to(hero, {
+                scrollTrigger: {
+                    trigger: hero,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                },
+                "--hero-parallax": "120px"
+            });
+            ScrollTrigger.create({
+                trigger: hero,
+                start: "top top",
+                end: "bottom top",
+                onEnter: () => hero.classList.add("hero-active"),
+                onLeaveBack: () => hero.classList.remove("hero-active")
+            });
+        }
+
+    </script>
+    <script>
+        const videos = document.querySelectorAll('.category-video');
+
+        const videoObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const p = entry.target.play && entry.target.play();
+                    if (p && p.catch) p.catch(() => { });
+                } else {
+                    if (entry.target.pause) entry.target.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        videos.forEach(video => videoObserver.observe(video));
+    </script>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-name">
+                Lineekela
+            </div>
+
+            <div class="footer-left">
+                <img src="images/logo.png" alt="Portfolio logo"
+                    class="footer-logo">
+                <p class="footer-tagline ttcommons">
+                    Software Engineer building web applications,<br>
+                    3D interactive experiences, and technical solutions.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <span class="footer-title">Navigate</span>
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="footer-column">
+                    <span class="footer-title">Connect</span>
+                    <a href="https://github.com/lee38667" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/lineekela/" target="_blank">LinkedIn</a>
+                    <a href="mailto:lee38667@gmail.com">Email</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom ttcommons">
+            © 2026 Lineekela J. Shinavene • Software Engineer
+        </div>
+    </footer>
+<script>
+    // Register ScrollTrigger if not already done
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Footer Name Swipe Animation
+    gsap.from(".footer-name", {
+        scrollTrigger: {
+            trigger: ".site-footer", // Starts when the footer enters the view
+            start: "top 90%",        // Animates when footer is 90% down the screen
+            toggleActions: "play none none none"
+        },
+        x: -200,                // Start 200px to the left
+        opacity: 0,             // Start invisible
+        duration: 1.5,          // Speed of the swipe
+        ease: "power4.out",     // Smooth "deceleration" effect
+        autoAlpha: 1,           // Switches visibility from hidden to visible
+        delay: 0.2              // Slight delay for a premium feel
+    });
+</script>
+<div id="github-popup" class="glass-popup">
+    <div class="popup-content">
+        <p>Visit the <a href="contact.html">Connect page</a> to find my GitHub!</p>
+        <button id="close-popup">&times;</button>
+    </div>
+</div>  
+<script>
+    const popup = document.getElementById('github-popup');
+    const closeBtn = document.getElementById('close-popup');
+
+    function togglePopup() {
+        // Show the popup
+        popup.classList.add('show');
+
+        // Stay for 5 seconds then hide
+        setTimeout(() => {
+            popup.classList.remove('show');
+        }, 5000);
+    }
+
+    // Manual close listener
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
+    });
+
+    // 3 second delay before the very first appearance
+    setTimeout(() => {
+        togglePopup();
+        
+        // After the first one shows, repeat every 20 seconds
+        setInterval(togglePopup, 30000);
+    }, 3000);
+</script>
+<div class="custom-cursor"></div>
+<script>
+    const cursor = document.querySelector('.custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Scale cursor on interactive elements
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.8)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    });
+</script>
+
+</body>
+
+</html>

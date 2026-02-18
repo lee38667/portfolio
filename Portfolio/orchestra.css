@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+.orchestra-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 500vh;
+  font-family: "TTCommonsLocal", sans-serif;
+}
+
+.orchestra-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.orchestra-sticky {
+  background-color: #2b1208;
+  color: #ffe9d9;
+}
+
+.orchestra-about {
+  background-color: #cdb9ab;
+  color: #2b1208;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.orchestra-about-inner {
+  max-width: 960px;
+}
+
+.orchestra-about-inner h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.orchestra-about-inner p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.orchestra-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.orchestra-link-card {
+  text-decoration: none;
+  color: inherit;
+  background: rgba(43, 18, 8, 0.08);
+  border: 1px solid rgba(43, 18, 8, 0.25);
+  padding: 1.25rem 1rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.orchestra-link-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(43, 18, 8, 0.25);
+  background: rgba(43, 18, 8, 0.15);
+}
+
+.orchestra-link-title {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.orchestra-logo {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 24px;
+  z-index: 2;
+}
+
+.orchestra-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.orchestra-col:nth-child(2) {
+  gap: 26px;
+}
+
+.orchestra-block {
+  width: 35px;
+  height: 35px;
+  background-color: #ffe9d9;
+}
+
+.orchestra-block-1 {
+  transform: rotate(42deg);
+  transform-origin: bottom right;
+}
+
+.orchestra-block-5 {
+  transform: rotate(-42deg);
+  transform-origin: bottom left;
+}
+
+.orchestra-cubes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.orchestra-cube {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+}
+
+.orchestra-cube > div {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.orchestra-cube img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orchestra-front {
+  transform: translateZ(75px);
+}
+
+.orchestra-back {
+  transform: translateZ(-75px) rotateY(180deg);
+}
+
+.orchestra-right {
+  transform: translateX(75px) rotateY(90deg);
+}
+
+.orchestra-left {
+  transform: translateX(-75px) rotateY(-90deg);
+}
+
+.orchestra-top {
+  transform: translateY(-75px) rotateX(90deg);
+}
+
+.orchestra-bottom {
+  transform: translateY(75px) rotateX(-90deg);
+}
+
+.orchestra-header-1 {
+  width: min(60%, 900px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center center;
+  text-align: center;
+  color: #ffe9d9;
+}
+
+.orchestra-header-1 h1 {
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.05;
+}
+
+.orchestra-header-2 {
+  width: min(32%, 520px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.75);
+  transform-origin: center center;
+  text-align: center;
+  opacity: 0;
+  filter: blur(10px);
+  color: #ffe9d9;
+}
+
+.orchestra-header-2 h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.orchestra-header-2 p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .orchestra-header-1 {
+    width: 85%;
+  }
+
+  .orchestra-header-2 {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .orchestra-cube,
+  .orchestra-cube > div {
+    width: 110px;
+    height: 110px;
+  }
+
+  .orchestra-front {
+    transform: translateZ(55px);
+  }
+
+  .orchestra-back {
+    transform: translateZ(-55px) rotateY(180deg);
+  }
+
+  .orchestra-right {
+    transform: translateX(55px) rotateY(90deg);
+  }
+
+  .orchestra-left {
+    transform: translateX(-55px) rotateY(-90deg);
+  }
+
+  .orchestra-top {
+    transform: translateY(-55px) rotateX(90deg);
+  }
+
+  .orchestra-bottom {
+    transform: translateY(55px) rotateX(-90deg);
+  }
+
+  .orchestra-header-2 {
+    width: 85%;
+  }
+}
